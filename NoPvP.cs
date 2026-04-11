@@ -1,10 +1,11 @@
 namespace Oxide.Plugins;
 
-[Info("No Player Damage", "&anhe", "1.1.7")]
+[Info("No PvP", "&anhe", "1.1.8")]
 [Description("Prevents damage from players to players unless they are in a team.")]
-public class NoPlayerDamage : RustPlugin
+public class NoPvP : RustPlugin
 {
     private object OnEntityTakeDamage(BaseCombatEntity target, HitInfo info) =>
+        // Prevent if
         (
             // Attacker is Player
             info.InitiatorPlayer is {} attacker &&
